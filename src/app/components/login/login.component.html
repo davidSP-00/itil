@@ -5,14 +5,15 @@
           <img height="100" width="90" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTv3RxZQ0wTKOconh-6wEJCHMCDgQ4xZdpbpag0Q09lCAjbk6pUDmmxdrPiDfdQIUPWJ4hiwcapJZkf7MDo4eiqKa9MNG-qQ7e6ZGsW&usqp=CAU&ec=45714079">
           <h3>Iniciar Sesion</h3>
 
-          <form action="#" method="post" class="signin-form">
+          <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
             <div class="form-input">
-              <span class="fa fa-envelope-o" aria-hidden="true"></span> <input type="email" name="email"
-                placeholder="Username" required />
+              <span class="fa fa-envelope-o" aria-hidden="true"></span> 
+              <input type="text" name="email" formControlName="login" placeholder="Username">
             </div>
             <div class="form-input">
-              <span class="fa fa-key" aria-hidden="true"></span> <input type="password" name="password" placeholder="Password"
-                required />
+              <span class="fa fa-key" aria-hidden="true"></span> 
+              <input type="password" name="password" formControlName="clave" placeholder="Password">
+
             </div>
             <div class="login-remember d-grid">
               <label class="check-remaind">
@@ -20,14 +21,14 @@
                 <span class="checkmark"></span>
                 <p class="remember">Remember me</p>
               </label>
-              <button class="btn theme-button" (click)="login()">Login</button>
+              <button class="btn theme-button" type="submit">Login</button>
             </div>
             <div class="new-signup">
               <a href="#" class="signuplink">¿Ovido su contraseña?</a>
             </div>
           </form>
          
-          <p class="signup">¿No tiene una cuenta asociada? <a href="#" class="signuplink">Registrarse</a></p>
+          <!-- <p class="signup">¿No tiene una cuenta asociada? <a href="#" class="signuplink">Registrarse</a></p> -->
         </div>
 
         

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ActualizadoIncidenciasComponent } from './components/actualizado-incidencias/actualizado-incidencias.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
 import { IncidenciasComponent } from './components/incidencias/incidencias.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
@@ -14,6 +16,8 @@ children:[
   {path:'incidencias',component:IncidenciasComponent},
   {path:'registro',component:RegistroComponent},
   {path:'reporte',component:ReporteComponent},
+  {path:'actualizar',component:ActualizadoIncidenciasComponent},
+  {path:'detalle',component:DetalleComponent},
   { path: '',pathMatch:'full',redirectTo:'incidencias'},
   { path: '**', pathMatch:'full',redirectTo:'incidencias' },
 ]},

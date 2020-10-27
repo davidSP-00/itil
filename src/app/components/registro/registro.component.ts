@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { IncidenciasService } from 'src/app/services/incidencias.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
     private usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService.getUusariosByRolId(2).subscribe(
+    this.usuarioService.getUsariosByRolId(2).subscribe(
       data=>{
         console.log(data);
         this.soportes=data.body;
@@ -58,9 +58,9 @@ console.log(this.registroForm)
 const data={
   "descripcion": this.registroForm.get('descripcion').value,
   "estadoIncidencia": {"id": this.registroForm.get('estadoIncidencia').value},
-  "fechaAsignada": "2020-10-25 18:00:00",
-  "fechaFin": "2020-10-25 20:00:00",
-  "fechaInicio": "2020-10-25 18:00:00",
+  "fechaAsignada": moment(new Date()).format('YYYY-MM-DD hh:mm:ss'),
+  "fechaFin": '',
+  "fechaInicio": '',
   "nombre": this.registroForm.get('incidencia').value,
   "origen": this.registroForm.get('origen').value,
   "prioridadIncidencia": {"id": this.registroForm.get('prioridadIncidencia').value,},
@@ -70,7 +70,7 @@ const data={
 }
 console.log(data);
 this.incidencisService.registrarIncidencia(data).subscribe(data=>{
-  window.alert('incidencia subscripta');
+  window.alert('Incidencia Registrada');
 })
   }
 }

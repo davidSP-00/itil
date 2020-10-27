@@ -5,12 +5,18 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private url = 'http://localhost:8090/api/usuario';
+  private url = 'https://itilv3.herokuapp.com//api/usuario';
   constructor(private http: HttpClient) { }
 
-  getUusariosByRolId(id:number):Observable<any>{
+  getUsariosByRolId(id:number):Observable<any>{
     const url=`${this.url}/rol/${id}`;
 
 return this.http.get(url);
   }
+  loginUsuario(data):Observable<any>{
+    const url=`${this.url}/login`;
+
+return this.http.post(url,data);
+  }
+
 }

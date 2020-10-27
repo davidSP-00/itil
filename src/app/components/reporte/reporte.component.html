@@ -1,3 +1,42 @@
-<section class="banner position-relative" id="tabla">
+<div class="banner position-relative" id="tabla">
+    <div class="container">
+        <a href="#">
+            <h1>Reporte de Incidencia</h1>
+        </a><br>
+        <form  (ngSubmit)="onSubmit()" [formGroup]="reporteForm">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label>Causa</label>
+                    <textarea formControlName="causa" class="form-control fomr1"    placeholder="Causa"
+                        value="" ></textarea>
+
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Solucion</label>
+                    <textarea formControlName="resolucion" class="form-control fomr1"   placeholder="Solucion"
+                        value="" ></textarea>
+
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Observacion</label>
+                    <textarea formControlName="observacion" class="form-control fomr1"  placeholder="Observacion"
+                        value="" ></textarea>
+
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>Escala</label>
+                    <input formControlName="escalado" class="form-control fomr1"  type="text"  placeholder="Escalado"
+                        value="" >
+
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div><br><br><br>
     
-</section>
+            </div><br>
+            <button  class="btn btn-primary" type="submit">Generar Reporte</button>
+        </form>
+    
+    </div>
+</div>

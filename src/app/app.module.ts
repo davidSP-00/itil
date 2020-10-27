@@ -11,6 +11,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { ActualizadoIncidenciasComponent } from './components/actualizado-incidencias/actualizado-incidencias.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     MainComponent,
     RegistroComponent,
     ReporteComponent,
+    ActualizadoIncidenciasComponent,
+    DetalleComponent,
   ],
   imports: [
     BrowserModule,

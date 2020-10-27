@@ -360,16 +360,6 @@ li > a:only-child:after { content: ''; }
       align-items: center;
       padding: 2rem 0;
 }
-.banner:before{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.45;
-	background: #000;
-}
 .slider-info {
     position: relative;
     text-align: center;
