@@ -1,0 +1,89 @@
+
+<div class="container">
+    <a href="#">
+        <h1>Registro de incidencias</h1>
+    </a><br>
+    <form  (ngSubmit)="onSubmit()" [formGroup]="registroForm">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <input formControlName="incidencia" class="form-control fomr1"  type="text"  placeholder="Incidencia"
+                    value="" required>
+                <div class="invalid-feedback">Complete el campo.</div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select class="form-control fomr1" formControlName="tipoIncidencia" type="text"  id="direccion"
+                    placeholder="Tipo de incidencia" required>
+                    <option value="" disabled>Tipo</option>
+                    <option value="1">leve</option>
+                    <option value="2">severo</option>
+                    <option value="3">critico</option>
+                </select>
+
+                <div class="invalid-feedback">Complete el campo.</div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select  type="text" class="form-control fomr1" formControlName="prioridadIncidencia"  placeholder="Prioridad"
+                    required>
+                    <option value="" disabled>Prioridad</option>
+                    <option value="1">critica</option>
+                    <option value="2">alta</option>
+                    <option value="3">media</option>
+                    <option value="4">baja</option>
+                    <option value="5">muy baja</option>
+                </select>
+                <div class="invalid-feedback">Complete el campo.</div>
+            </div><br><br><br>
+
+            <div class="col-md-12 mb-3">
+                <input type="text" class="form-control fomr1"  formControlName="descripcion" placeholder="Descripcion"
+                    value="" required>
+                <div class="invalid-feedback">Complete el campo.</div>
+            </div><br><br><br>
+
+
+            <div class="col-md-4 mb-3">
+                <div class="input-group">
+
+                    <select type="text" class="form-control fomr1" formControlName="estadoIncidencia" placeholder="Estado"
+                        aria-describedby="inputGroupPrepend" required>
+                    <option value="" disabled>Estado</option>
+                    <option value="1">asignado</option>
+                    <option value="2">anulado</option>
+                    <option value="3">resuelto</option>
+                    <option value="4">cerrado</option>
+                    </select>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="input-group">
+
+                    <input type="text" class="form-control fomr1" formControlName="origen" placeholder="Origen"
+                        aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="input-group">
+
+                    <select type="text" class="form-control fomr1" formControlName="usuarioAsigna" placeholder="Estado"
+                        aria-describedby="inputGroupPrepend" required>
+                    <option value="" disabled>Asignar a</option>
+                    <option value="{{soporte.id}}" *ngFor="let soporte of soportes">{{soporte.nombre}}</option>
+                    </select>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+            </div>
+            <!-- <div class="col-md-4 mb-3">
+                <div class="input-group">
+
+                    <input type="text" class="form-control fomr1" formControlName="area" placeholder="Area"
+                        aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+            </div> -->
+        </div><br><br>
+        <button  class="btn btn-primary" type="submit">Registrar</button>
+    </form>
+
+</div>

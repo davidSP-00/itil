@@ -1,0 +1,32 @@
+
+
+	<div class="container">
+		<table class="table table-striped ">
+			<thead>
+			<tr>
+			<th>Incidencia</th>
+			<th>Area</th>
+			<th>Tipo de incidencia</th>
+			<th>Estado</th>
+			<th>Prioridad de incidencia</th>
+			<th>Encargado</th>
+			<th>Fecha</th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let incidencia of incidencias">
+			<td>{{incidencia.nombre}}</td>
+			<td>{{incidencia.origen}}</td>
+			<td>{{incidencia.tipoIncidencia.nombre}}</td>
+			<td>{{incidencia.estadoIncidencia.nombre}}</td>
+			<td>{{incidencia.prioridadIncidencia.nombre}}</td>
+			<td>{{incidencia.usuarioAsigna.nombre}}</td>
+			<td>{{incidencia.fechaInicio}}</td>
+			<td>Acciones</td>
+		  </tr>
+		</tbody>
+		</table>
+		
+		
+	</div>
