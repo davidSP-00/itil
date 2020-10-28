@@ -1,18 +1,20 @@
 <div class="banner position-relative" id="tabla">
 <div class="container">
     <a href="#">
-        <h1>Registro de incidencias</h1>
+        <h1>Registrar incidencias</h1>
     </a><br>
     <form  (ngSubmit)="onSubmit()" [formGroup]="registroForm">
         <div class="form-row">
             <div class="col-md-4 mb-3">
-                <input formControlName="incidencia" class="form-control fomr1"  type="text"  placeholder="Incidencia"
-                    value="" required>
+                <label>Nombre</label>
+                <input formControlName="incidencia" class="form-control fomr1"  type="text"
+                    value="">
                 <div class="invalid-feedback">Complete el campo.</div>
             </div>
             <div class="col-md-4 mb-3">
+                <label>Tipo</label>
                 <select class="form-control fomr1" formControlName="tipoIncidencia" type="text"  id="direccion"
-                    placeholder="Tipo de incidencia" required>
+                    placeholder="Tipo de incidencia">
                     <option value="" disabled>Tipo</option>
                     <option value="1">leve</option>
                     <option value="2">severo</option>
@@ -22,8 +24,8 @@
                 <div class="invalid-feedback">Complete el campo.</div>
             </div>
             <div class="col-md-4 mb-3">
-                <select  type="text" class="form-control fomr1" formControlName="prioridadIncidencia"  placeholder="Prioridad"
-                    required>
+                <label>Prioridad</label>
+                <select  type="text" class="form-control fomr1" formControlName="prioridadIncidencia">
                     <option value="" disabled>Prioridad</option>
                     <option value="1">critica</option>
                     <option value="2">alta</option>
@@ -35,13 +37,14 @@
             </div><br><br><br>
 
             <div class="col-md-12 mb-3">
-                <input type="text" class="form-control fomr1"  formControlName="descripcion" placeholder="Descripcion"
-                    value="" required>
+                <label>Descripcion</label>
+                <textarea  style="height: 100px;" class="form-control fomr1"  formControlName="descripcion"
+                    value="" ></textarea>
                 <div class="invalid-feedback">Complete el campo.</div>
             </div><br><br><br>
 
 
-            <div class="col-md-4 mb-3">
+            <!-- <div class="col-md-4 mb-3">
                 <div class="input-group">
 
                     <select type="text" class="form-control fomr1" formControlName="estadoIncidencia" placeholder="Estado"
@@ -55,16 +58,15 @@
                     </select>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-4 mb-3">
-                <div class="input-group">
-
+                    <label>Origen</label>
                     <input type="text" class="form-control fomr1" formControlName="origen" placeholder="Origen"
-                        aria-describedby="inputGroupPrepend" required>
+                        aria-describedby="inputGroupPrepend">
                     <div class="invalid-feedback">Complete el campo.</div>
-                </div>
+                
             </div>
-            <div class="col-md-4 mb-3">
+            <!-- <div class="col-md-4 mb-3">
                 <div class="input-group">
 
                     <select type="text" class="form-control fomr1" formControlName="usuarioAsigna" placeholder="Estado"
@@ -74,7 +76,7 @@
                     </select>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="col-md-4 mb-3">
                 <div class="input-group">
 

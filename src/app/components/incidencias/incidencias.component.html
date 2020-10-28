@@ -19,9 +19,9 @@
 					<td>{{incidencia.nombre}}</td>
 					<td>{{incidencia.origen}}</td>
 					<td>{{incidencia.tipoIncidencia.nombre}}</td>
-					<td>{{incidencia.estadoIncidencia.nombre}}</td>
+					<td>{{incidencia.estadoIncidencia?incidencia.estadoIncidencia.nombre:'-'}}</td>
 					<td>{{incidencia.prioridadIncidencia.nombre}}</td>
-					<td>{{incidencia.usuarioAsigna.nombre}}</td>
+					<td>{{incidencia.usuarioAsigna?incidencia.usuarioAsigna.nombre:'-'}}</td>
 					<td>{{incidencia.fechaAsignada}}</td>
 					<td>
 						<div class="btn-group">
@@ -30,7 +30,7 @@
 								Acciones
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" (click)="actualizar(incidencia)">Actualizar</a>
+								<a class="dropdown-item" (click)="actualizar(incidencia)" *ngIf="usuario.rol.id!=3">Actualizar</a>
 								<a class="dropdown-item" (click)="verDetalles(incidencia)">Ver Detalles</a>
 								<!-- <a class="dropdown-item" (click)="generarReporte(incidencia)" >Reportar</a> -->
 								<!-- <a class="dropdown-item" (click)="eliminar(incidencia,i)">Eliminar</a> -->

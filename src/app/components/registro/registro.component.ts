@@ -12,11 +12,13 @@ export class RegistroComponent implements OnInit {
   registroForm: FormGroup;
 
   soportes=[];
+  usuario:any={};
   constructor(private fb: FormBuilder,
     private incidencisService:IncidenciasService,
     private usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
+    this.usuario=this.usuarioService.getUsuario;
     this.usuarioService.getUsariosByRolId(2).subscribe(
       data=>{
         console.log(data);
@@ -36,15 +38,15 @@ export class RegistroComponent implements OnInit {
       descripcion: new FormControl('', {
         updateOn: 'change'
       }),
-      estadoIncidencia: new FormControl('', {
+      /* estadoIncidencia: new FormControl('', {
         updateOn: 'change'
-      }),
+      }), */
       origen: new FormControl('', {
         updateOn: 'change'
       }),
-      usuarioAsigna:new FormControl('', {
+      /* usuarioAsigna:new FormControl('', {
         updateOn: 'change'
-      }),
+      }), */
      /* area: new FormControl('', {
         validators: Validators.required,
         updateOn: 'change'
@@ -57,7 +59,7 @@ console.log(this.registroForm)
 
 const data={
   "descripcion": this.registroForm.get('descripcion').value,
-  "estadoIncidencia": {"id": this.registroForm.get('estadoIncidencia').value},
+  "estadoIncidencia": {"id": 6},
   "fechaAsignada": moment(new Date()).format('YYYY-MM-DD hh:mm:ss'),
   "fechaFin": '',
   "fechaInicio": '',
@@ -65,8 +67,8 @@ const data={
   "origen": this.registroForm.get('origen').value,
   "prioridadIncidencia": {"id": this.registroForm.get('prioridadIncidencia').value,},
   "tipoIncidencia": {"id": this.registroForm.get('tipoIncidencia').value,},
-  "usuarioAsigna": {"id": this.registroForm.get('usuarioAsigna').value},
-  "usuarioReporta": {"id": 1}
+  /* "usuarioAsigna": {"id": this.registroForm.get('usuarioAsigna').value}, */
+  "usuarioReporta": {"id":this.usuario.id}
 }
 console.log(data);
 this.incidencisService.registrarIncidencia(data).subscribe(data=>{

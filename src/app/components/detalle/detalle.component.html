@@ -47,21 +47,46 @@
                 <p>{{incidencia.origen}}</p>
             </div>
             <div class="col">
-                <label>Usuario Asignado:</label>
-                <p>{{incidencia.usuarioAsigna.nombre}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label>Usuario que registro:</label>
-                <p>{{incidencia.usuarioReporta.nombre}}</p>
-            </div>
-            <div class="col">
+                <!-- <label>Usuario Asignado:</label>
+                <p>{{incidencia.usuarioAsigna?incidencia.usuarioAsigna.nombre:'-'}}</p> -->
             </div>
         </div>
         <br>
-        <h4 class="text-center ">Reporte de Incidencia</h4>
+        <div class="row">
+            <div class="col">
+                <label>Usuario Asignado:</label>
+                <p *ngIf="!incidencia.usuarioAsigna">-</p>
+                <div class="row" *ngIf="incidencia.usuarioAsigna">
+                    <div class="col"><label>Nombre:</label>
+                        <p>{{incidencia.usuarioAsigna.nombre}}</p></div>
+                    <div class="col"><label>Correo:</label>
+                        <p>{{incidencia.usuarioAsigna.correo}}</p></div>
+                    <div class="col"><label>Telefono:</label>
+                        <p>{{incidencia.usuarioAsigna.movil}}</p></div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <label>Usuario que registro:</label>
+                <div class="row">
+                    <div class="col"><label>Nombre:</label>
+                        <p>{{incidencia.usuarioReporta.nombre}}</p></div>
+                    <div class="col"><label>Correo:</label>
+                        <p>{{incidencia.usuarioReporta.correo}}</p></div>
+                    <div class="col"><label>Telefono:</label>
+                        <p>{{incidencia.usuarioReporta.movil}}</p></div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="container text-center" *ngIf="!reporte">
+            No reportada
+        </div>
         <div class="container text-center" *ngIf="reporte">
+            <h4 class="text-center">Reporte de Incidencia</h4>
             <div class="row">
                 <div class="col">
                     <label>Causa:</label>
@@ -89,7 +114,7 @@
         </div>
         <br>
         <div class="col text-center">
-            <button *ngIf="!reporte" class=" btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
+            <button *ngIf="puedeReportar" class=" btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
         </div>
     </div>
 

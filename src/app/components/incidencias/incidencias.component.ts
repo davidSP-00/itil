@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IncidenciasService } from 'src/app/services/incidencias.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-incidencias',
@@ -10,10 +11,13 @@ import { IncidenciasService } from 'src/app/services/incidencias.service';
 export class IncidenciasComponent implements OnInit {
   incidencias=[];
 
+  usuario:any={};
   constructor(private incidenciasService:IncidenciasService,
+    private usuarioService:UsuarioService,
     private router:Router) { }
 
   ngOnInit(): void {
+    this.usuario=this.usuarioService.getUsuario;
    this.getIncidencias();
   }
   actualizar(incidencia){
@@ -40,7 +44,7 @@ export class IncidenciasComponent implements OnInit {
     this.router.navigate(['/main/detalle']);
   }
   getIncidencias(){
-    this.incidenciasService.getIncidenciasById(1).subscribe(
+    this.incidenciasService.getIncidenciasById(this.usuario.id).subscribe(
       data=>{
         console.log(data)
         this.incidencias=data.body;

@@ -95,8 +95,12 @@ export class ActualizadoIncidenciasComponent implements OnInit {
     this.actualizarForm.get('descripcion').setValue(this.incidencia.descripcion);
     this.actualizarForm.get('tipoIncidencia').setValue(this.incidencia.tipoIncidencia.id);
     this.actualizarForm.get('prioridadIncidencia').setValue(this.incidencia.prioridadIncidencia.id);
+    console.log(this.incidencia.estadoIncidencia.id)
     this.actualizarForm.get('estadoIncidencia').setValue(this.incidencia.estadoIncidencia.id);
     this.actualizarForm.get('origen').setValue(this.incidencia.origen);
-    this.actualizarForm.get('usuarioAsigna').setValue(this.incidencia.usuarioAsigna.id)
+    if(this.incidencia.usuarioAsigna!=null){
+      this.actualizarForm.get('usuarioAsigna').setValue(this.incidencia.usuarioAsigna.id)
+    }
+    
   }
 }

@@ -5,7 +5,8 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class IncidenciasService {
-  private url = 'https://itilv3.herokuapp.com/api/incidencia';
+  /* private url = 'https://itilv3.herokuapp.com/api/incidencia'; */
+  private url = 'http://localhost:8090/api/incidencia';
   constructor(private http: HttpClient) { }
 
   getIncidenciasById(id:number):Observable<any>{

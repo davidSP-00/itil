@@ -3,27 +3,28 @@
         <a href="#">
             <h1>Actualizar incidencias</h1>
         </a><br>
-        <form  (ngSubmit)="onSubmit()" [formGroup]="actualizarForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="actualizarForm">
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <input formControlName="incidencia" class="form-control fomr1"  type="text"  placeholder="Incidencia"
-                        value="" required>
+                    <label>Nombre</label>
+                    <input formControlName="incidencia" class="form-control fomr1" type="text" value="" required>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <select class="form-control fomr1" formControlName="tipoIncidencia" type="text"  id="direccion"
-                        placeholder="Tipo de incidencia" required>
+                    <label>Tipo</label>
+                    <select class="form-control fomr1" formControlName="tipoIncidencia" type="text" id="direccion"
+                        placeholder="Tipo de incidencia" >
                         <option value="" disabled>Tipo</option>
                         <option value="1">leve</option>
                         <option value="2">severo</option>
                         <option value="3">critico</option>
                     </select>
-    
+
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <select  type="text" class="form-control fomr1" formControlName="prioridadIncidencia"  placeholder="Prioridad"
-                        required>
+                    <label>Prioridad</label>
+                    <select type="text" class="form-control fomr1" formControlName="prioridadIncidencia" >
                         <option value="" disabled>Prioridad</option>
                         <option value="1">critica</option>
                         <option value="2">alta</option>
@@ -33,59 +34,48 @@
                     </select>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div><br><br><br>
-    
+
                 <div class="col-md-12 mb-3">
-                    <input type="text" class="form-control fomr1"  formControlName="descripcion" placeholder="Descripcion"
-                        value="" required>
+                    <label>Descripcion</label>
+                    <input type="text" class="form-control fomr1" formControlName="descripcion" value="" >
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div><br><br><br>
-    
-    
+
+
                 <div class="col-md-4 mb-3">
-                    <div class="input-group">
-    
-                        <select type="text" class="form-control fomr1" formControlName="estadoIncidencia" placeholder="Estado"
-                            aria-describedby="inputGroupPrepend" required>
+                    <label>Estado</label>
+                    <select type="text" class="form-control fomr1" formControlName="estadoIncidencia"
+                        placeholder="Estado" aria-describedby="inputGroupPrepend" >
                         <option value="" disabled>Estado</option>
-                        <option value="1">Asignado</option>
-                    <option value="2">En proceso</option>
-                    <option value="3">Anulado</option>
-                    <option value="4">Resuelto</option>
-                    <option value="5">Cerrado</option>
-                        </select>
-                        <div class="invalid-feedback">Complete el campo.</div>
-                    </div>
+                        <option value="1">Por Validar</option>
+                        <option value="2">Asignado</option>
+                        <option value="3">En proceso</option>
+                        <option value="4">Anulado</option>
+                        <option value="5">Resuelto</option>
+                        <option value="6">Cerrado</option>
+                    </select>
+                    <div class="invalid-feedback">Complete el campo.</div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="input-group">
-    
-                        <input type="text" class="form-control fomr1" formControlName="origen" placeholder="Origen"
-                            aria-describedby="inputGroupPrepend" required>
+                    <label>Origen</label>
+                        <input type="text" class="form-control fomr1" formControlName="origen" 
+                            aria-describedby="inputGroupPrepend" >
                         <div class="invalid-feedback">Complete el campo.</div>
-                    </div>
+                   
                 </div>
                 <div class="col-md-4 mb-3">
-                    <div class="input-group">
-    
-                        <select type="text" class="form-control fomr1" formControlName="usuarioAsigna" placeholder="Estado"
-                            aria-describedby="inputGroupPrepend" required>
-                        <option value="" disabled>Asignar a</option>
-                        <option value="{{soporte.id}}" *ngFor="let soporte of soportes">{{soporte.nombre}}</option>
+                        <label>Asignar a</label>
+                        <select type="text" class="form-control fomr1" formControlName="usuarioAsigna"
+                             aria-describedby="inputGroupPrepend" >
+                            <option value="" disabled>Asignar a</option>
+                            <option value="{{soporte.id}}" *ngFor="let soporte of soportes">{{soporte.nombre}}</option>
                         </select>
                         <div class="invalid-feedback">Complete el campo.</div>
-                    </div>
+                   
                 </div>
-                <!-- <div class="col-md-4 mb-3">
-                    <div class="input-group">
-    
-                        <input type="text" class="form-control fomr1" formControlName="area" placeholder="Area"
-                            aria-describedby="inputGroupPrepend" required>
-                        <div class="invalid-feedback">Complete el campo.</div>
-                    </div>
-                </div> -->
             </div><br><br>
-            <button  class="btn btn-primary" type="submit" >Registrar</button>
+            <button class="btn btn-primary" type="submit">Registrar</button>
         </form>
-    
+
     </div>
-    </div>
+</div>
