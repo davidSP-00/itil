@@ -59,7 +59,7 @@ console.log(this.registroForm)
 
 const data={
   "descripcion": this.registroForm.get('descripcion').value,
-  "estadoIncidencia": {"id": 6},
+  "estadoIncidencia": {"id": 1},
   "fechaAsignada": moment(new Date()).format('YYYY-MM-DD hh:mm:ss'),
   "fechaFin": '',
   "fechaInicio": '',
