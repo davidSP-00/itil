@@ -21,7 +21,6 @@ export class DetalleComponent implements OnInit {
     this.usuario=this.usuarioService.getUsuario;
     this.incidenciasService.getReporteIncidencia(this.incidencia.id).subscribe(
       data=>{
-        console.log(data);
 this.reporte=data.body;
       }
     )
@@ -33,12 +32,9 @@ this.reporte=data.body;
   }
   get puedeReportar(){
     let aux=0;
-    console.log(this.incidencia.usuarioAsigna)
     if(this.incidencia.usuarioAsigna!=null){
 aux=this.incidencia.usuarioAsigna.id;
     }
-    console.log(aux)
-    console.log(this.usuario.id)
     return this.usuario.id==aux||this.usuario.rol.id==1||this.usuario.rol.id==3
   }
 }

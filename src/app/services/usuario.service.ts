@@ -5,8 +5,8 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
- /*  private url = 'https://itilv3.herokuapp.com/api/usuario'; */
- private url = 'http://localhost:8090/api/usuario';
+  private url = 'https://itilv3.herokuapp.com/api/usuario';
+ /* private url = 'http://localhost:8090/api/usuario'; */
  usuario:any={};
   constructor(private http: HttpClient) {
 
@@ -27,6 +27,16 @@ return this.http.post(url,data);
     const url=`${this.url}/registrar`;
 
 return this.http.post(url,data);
+  }
+  obtenerUsuario(id){
+    const url=`${this.url}/${id}`;
+
+return this.http.get(url);
+  }
+  obtenerUsuarios(){
+    const url=`${this.url}/listar`;
+
+return this.http.get(url);
   }
   get getUsuario(){
     return JSON.parse(localStorage.getItem('USER'));

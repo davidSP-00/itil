@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     if(this.loginForm.invalid){
-console.log('Invalido');
 return;
     }
     const data={
@@ -41,7 +40,6 @@ return;
 
     }
     this.usuarioService.loginUsuario(data).subscribe(data=>{
-      console.log(data);
       this.router.navigate(['main']);
       localStorage.setItem('USER',JSON.stringify(data));
     },(err)=>{

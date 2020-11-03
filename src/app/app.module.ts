@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ActualizadoIncidenciasComponent } from './components/actualizado-incidencias/actualizado-incidencias.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
     ActualizadoIncidenciasComponent,
     DetalleComponent,
     RegistroUsuarioComponent,
+    UsuariosComponent,
   ],
   imports: [
     BrowserModule,

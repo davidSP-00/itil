@@ -8,6 +8,7 @@ import { MainComponent } from './components/main/main.component';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 const routes: Routes = [
   
@@ -20,6 +21,8 @@ children:[
   {path:'actualizar',component:ActualizadoIncidenciasComponent},
   {path:'detalle',component:DetalleComponent},
   {path:'registro-usuario',component:RegistroUsuarioComponent},
+  {path:'usuarios',component:UsuariosComponent},
+  {path:'actualizar-usuario/:id',component:RegistroUsuarioComponent},
   { path: '',pathMatch:'full',redirectTo:'incidencias'},
   { path: '**', pathMatch:'full',redirectTo:'incidencias' },
 ]},

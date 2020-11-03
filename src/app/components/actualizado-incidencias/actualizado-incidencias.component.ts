@@ -65,7 +65,6 @@ export class ActualizadoIncidenciasComponent implements OnInit {
   getSoportes(){
     this.usuarioService.getUsariosByRolId(2).subscribe(
       data=>{
-        console.log(data);
         
         this.soportes=data.body;
         this.llenarFormulario()
@@ -75,7 +74,6 @@ export class ActualizadoIncidenciasComponent implements OnInit {
   getSoportes2(){
     this.usuarioService.getUsariosByRolId(3).subscribe(
       data=>{
-        console.log(data);
         
         this.soportes2=data.body;
         this.llenarFormulario()
@@ -86,7 +84,6 @@ export class ActualizadoIncidenciasComponent implements OnInit {
     if(this.actualizarForm.invalid){
       return;
     }
-    console.log(this.actualizarForm.controls)
     const data={
       "id":this.incidencia.id,
       "descripcion": this.actualizarForm.get('descripcion').value,
@@ -106,7 +103,6 @@ export class ActualizadoIncidenciasComponent implements OnInit {
       delete data.usuarioEscalado;
 
     }
-    console.log(data);
     this.incidenciasService.actualizarIncidencia(data).subscribe(data=>{
       window.alert('incidencia actualizada');
     })
@@ -118,7 +114,6 @@ export class ActualizadoIncidenciasComponent implements OnInit {
     this.actualizarForm.get('descripcion').setValue(this.incidencia.descripcion);
     this.actualizarForm.get('tipoIncidencia').setValue(this.incidencia.tipoIncidencia.id);
     this.actualizarForm.get('prioridadIncidencia').setValue(this.incidencia.prioridadIncidencia.id);
-    console.log(this.incidencia.estadoIncidencia.id)
     this.actualizarForm.get('estadoIncidencia').setValue(this.incidencia.estadoIncidencia.id);
     this.actualizarForm.get('origen').setValue(this.incidencia.origen);
     if(this.incidencia.usuarioAsigna!=null){

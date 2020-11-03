@@ -46,7 +46,6 @@ export class IncidenciasComponent implements OnInit {
   getIncidencias(){
     this.incidenciasService.getIncidenciasById(this.usuario.id).subscribe(
       data=>{
-        console.log(data)
         this.incidencias=data.body;
       }
     )

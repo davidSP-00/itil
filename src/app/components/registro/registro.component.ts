@@ -21,7 +21,6 @@ export class RegistroComponent implements OnInit {
     this.usuario=this.usuarioService.getUsuario;
     this.usuarioService.getUsariosByRolId(2).subscribe(
       data=>{
-        console.log(data);
         this.soportes=data.body;
       }
     )
@@ -55,7 +54,6 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit() {
-console.log(this.registroForm)
 
 const data={
   "descripcion": this.registroForm.get('descripcion').value,
@@ -70,7 +68,6 @@ const data={
   /* "usuarioAsigna": {"id": this.registroForm.get('usuarioAsigna').value}, */
   "usuarioReporta": {"id":this.usuario.id}
 }
-console.log(data);
 this.incidencisService.registrarIncidencia(data).subscribe(data=>{
   window.alert('Incidencia Registrada');
 })

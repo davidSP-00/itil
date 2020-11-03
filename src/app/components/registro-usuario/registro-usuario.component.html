@@ -1,0 +1,66 @@
+<div class="banner position-relative" id="tabla">
+    <div class="container">
+        <a href="#">
+            <h1>Registrar Usuario</h1>
+        </a><br>
+        <form (ngSubmit)="onSubmit()" [formGroup]="usuarioForm">
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label>Nombre</label>
+                    <input formControlName="nombre" class="form-control fomr1" type="text" value="" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Correo</label>
+                    <input formControlName="correo" class="form-control fomr1" type="text" value="" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Telefono</label>
+                    <input formControlName="movil" class="form-control fomr1" type="text" value="" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Usuario</label>
+                    <input formControlName="login" class="form-control fomr1" type="text" value="" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Contraseña</label>
+                    <input formControlName="clave" class="form-control fomr1" type="text" value="" required>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Sexo</label>
+                    <select formControlName="sexo" class="form-control fomr1" type="text" value="" required>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Rol</label>
+                    <select formControlName="rol" class="form-control fomr1" type="text" value="" required>
+                        <option value="5">Administrador</option>
+                        <option value="1">Coordinador de Soporte</option>
+                        <option value="2">Soporte N1</option>
+                        <option value="3">Soporte N2</option>
+                        <option value="4">Empleado</option>
+                    </select>
+
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label>Estado</label>
+                    <select formControlName="estado" class="form-control fomr1" type="text" value="" required>
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                        </select>
+                    <div class="invalid-feedback">Complete el campo.</div>
+                </div>
+            </div><br><br>
+            <button class="btn btn-primary" type="submit">Registrar Usuario</button>
+        </form>
+
+    </div>
+</div>

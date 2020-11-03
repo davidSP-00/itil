@@ -40,12 +40,10 @@ export class ReporteComponent implements OnInit {
   getReporte(){
     this.incidenciasService.getReporteIncidencia(this.incidencia.id).subscribe(
       data=>{
-        console.log('primera');
 this.reporte=data.body;
 this.llenarFormulario();
       }
     ),(err)=>{},()=>{
-      console.log('asd')
       
     }
   }
@@ -56,8 +54,6 @@ this.llenarFormulario();
     "observacion":this.reporteForm.get('resolucion').value,
     "resolucion":this.reporteForm.get('observacion').value
     }
-    console.log(data);
-    console.log('Reportando')
     this.incidenciasService.reporteIncidencia(data).subscribe(
       data=>{
         window.alert('Incidencia reportada');
