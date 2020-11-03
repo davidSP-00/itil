@@ -5,6 +5,7 @@ import { DetalleComponent } from './components/detalle/detalle.component';
 import { IncidenciasComponent } from './components/incidencias/incidencias.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
+import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
 
@@ -18,6 +19,7 @@ children:[
   {path:'reporte',component:ReporteComponent},
   {path:'actualizar',component:ActualizadoIncidenciasComponent},
   {path:'detalle',component:DetalleComponent},
+  {path:'registro-usuario',component:RegistroUsuarioComponent},
   { path: '',pathMatch:'full',redirectTo:'incidencias'},
   { path: '**', pathMatch:'full',redirectTo:'incidencias' },
 ]},

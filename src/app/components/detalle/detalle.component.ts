@@ -33,9 +33,12 @@ this.reporte=data.body;
   }
   get puedeReportar(){
     let aux=0;
+    console.log(this.incidencia.usuarioAsigna)
     if(this.incidencia.usuarioAsigna!=null){
 aux=this.incidencia.usuarioAsigna.id;
     }
-    return this.usuario.rol.id==aux||this.usuario.rol.id==1 
+    console.log(aux)
+    console.log(this.usuario.id)
+    return this.usuario.id==aux||this.usuario.rol.id==1||this.usuario.rol.id==3
   }
 }

@@ -12,7 +12,8 @@ export class ActualizadoIncidenciasComponent implements OnInit {
   actualizarForm: FormGroup;
 
   soportes=[];
-  incidencia:any={}
+  soportes2=[];
+    incidencia:any={}
   constructor(private fb: FormBuilder,
     private usuarioService:UsuarioService,
     private incidenciasService:IncidenciasService) { }
@@ -20,14 +21,8 @@ export class ActualizadoIncidenciasComponent implements OnInit {
   ngOnInit(): void {
 
     this.incidencia=JSON.parse(localStorage.getItem('INCIDENCIA'));
-    this.usuarioService.getUsariosByRolId(2).subscribe(
-      data=>{
-        console.log(data);
-        
-        this.soportes=data.body;
-        this.llenarFormulario()
-      }
-    )
+    this.getSoportes();
+    this.getSoportes2();
     this.actualizarForm = this.fb.group({
       incidencia: new FormControl('', {
         validators:[Validators.required],
@@ -57,11 +52,35 @@ export class ActualizadoIncidenciasComponent implements OnInit {
         validators:[Validators.required],
         updateOn: 'change'
       }),
+      usuarioEscalado:new FormControl('', {
+        /* validators:[Validators.required], */
+        updateOn: 'change'
+      }),
      /* area: new FormControl('', {
         validators: Validators.required,
         updateOn: 'change'
       }),  */
     });
+  }
+  getSoportes(){
+    this.usuarioService.getUsariosByRolId(2).subscribe(
+      data=>{
+        console.log(data);
+        
+        this.soportes=data.body;
+        this.llenarFormulario()
+      }
+    );
+  }
+  getSoportes2(){
+    this.usuarioService.getUsariosByRolId(3).subscribe(
+      data=>{
+        console.log(data);
+        
+        this.soportes2=data.body;
+        this.llenarFormulario()
+      }
+    );
   }
   onSubmit(){
     if(this.actualizarForm.invalid){
@@ -80,7 +99,12 @@ export class ActualizadoIncidenciasComponent implements OnInit {
       "prioridadIncidencia": {"id": this.actualizarForm.get('prioridadIncidencia').value,},
       "tipoIncidencia": {"id": this.actualizarForm.get('tipoIncidencia').value,},
       "usuarioAsigna": {"id": this.actualizarForm.get('usuarioAsigna').value},
-      "usuarioReporta": {"id":this.incidencia.usuarioReporta.id}
+      "usuarioReporta": {"id":this.incidencia.usuarioReporta.id},
+      "usuarioEscalado":{"id":this.actualizarForm.get('usuarioEscalado').value}
+    }
+    if(this.actualizarForm.get('usuarioEscalado').value==0|| this.actualizarForm.get('usuarioEscalado').value==''){
+      delete data.usuarioEscalado;
+
     }
     console.log(data);
     this.incidenciasService.actualizarIncidencia(data).subscribe(data=>{
@@ -90,7 +114,6 @@ export class ActualizadoIncidenciasComponent implements OnInit {
   }
 
   llenarFormulario(){
-    console.log('llenando');
     this.actualizarForm.get('incidencia').setValue(this.incidencia.nombre);
     this.actualizarForm.get('descripcion').setValue(this.incidencia.descripcion);
     this.actualizarForm.get('tipoIncidencia').setValue(this.incidencia.tipoIncidencia.id);
@@ -101,6 +124,8 @@ export class ActualizadoIncidenciasComponent implements OnInit {
     if(this.incidencia.usuarioAsigna!=null){
       this.actualizarForm.get('usuarioAsigna').setValue(this.incidencia.usuarioAsigna.id)
     }
-    
+    if(this.incidencia.usuarioEscalado!=null){
+      this.actualizarForm.get('usuarioEscalado').setValue(this.incidencia.usuarioEscalado.id)
+    }
   }
 }

@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ActualizadoIncidenciasComponent } from './components/actualizado-incidencias/actualizado-incidencias.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
+import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { DetalleComponent } from './components/detalle/detalle.component';
     ReporteComponent,
     ActualizadoIncidenciasComponent,
     DetalleComponent,
+    RegistroUsuarioComponent,
   ],
   imports: [
     BrowserModule,

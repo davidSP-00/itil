@@ -23,6 +23,11 @@ return this.http.get(url);
 return this.http.post(url,data);
   }
 
+  registrarUsuario(data):Observable<any>{
+    const url=`${this.url}/registrar`;
+
+return this.http.post(url,data);
+  }
   get getUsuario(){
     return JSON.parse(localStorage.getItem('USER'));
   }

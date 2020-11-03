@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  usuario:any={}
   constructor() { }
 
   ngOnInit(): void {
+this.usuario=JSON.parse(localStorage.getItem('USER'))
   }
 
   cerrarSesion(){
