@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UsuarioService } from 'src/app/services/usuario.service';
 import * as moment from 'moment';
 import { IncidenciasService } from 'src/app/services/incidencias.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-actualizado-incidencias',
   templateUrl: './actualizado-incidencias.component.html',
@@ -104,7 +105,10 @@ export class ActualizadoIncidenciasComponent implements OnInit {
 
     }
     this.incidenciasService.actualizarIncidencia(data).subscribe(data=>{
-      window.alert('incidencia actualizada');
+      Swal.fire({
+        icon:'success',
+        text:'Incidencia Actualizada correctamente'
+      })
     })
 
   }

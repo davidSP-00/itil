@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { IncidenciasService } from 'src/app/services/incidencias.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reporte',
@@ -56,7 +57,10 @@ this.llenarFormulario();
     }
     this.incidenciasService.reporteIncidencia(data).subscribe(
       data=>{
-        window.alert('Incidencia reportada');
+        Swal.fire({
+          icon:'success',
+          text:'Incidencia Actualizada Correctamente'
+        })
       }
     )
 

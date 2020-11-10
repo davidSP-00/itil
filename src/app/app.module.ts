@@ -15,6 +15,7 @@ import { ActualizadoIncidenciasComponent } from './components/actualizado-incide
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { ContraseniaComponent } from './components/contrasenia/contrasenia.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     DetalleComponent,
     RegistroUsuarioComponent,
     UsuariosComponent,
+    ContraseniaComponent,
   ],
   imports: [
     BrowserModule,

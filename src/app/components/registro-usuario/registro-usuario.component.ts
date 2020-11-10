@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -93,7 +94,10 @@ export class RegistroUsuarioComponent implements OnInit {
       data.id =this.usuario.id;
     }
     this.usuarioService.registrarUsuario(data).subscribe(data=>{
-      window.alert("Usuario Correctamente Registrado")
+      Swal.fire({
+        icon:'success',
+        text:'Usuario Correctamente Registrado'
+      })
     })
   }
 }

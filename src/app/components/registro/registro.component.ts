@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { IncidenciasService } from 'src/app/services/incidencias.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import * as moment from 'moment';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -69,7 +70,10 @@ const data={
   "usuarioReporta": {"id":this.usuario.id}
 }
 this.incidencisService.registrarIncidencia(data).subscribe(data=>{
-  window.alert('Incidencia Registrada');
+  Swal.fire({
+    icon:'success',
+    text:'Incidencia Registrada Correctamente'
+  })
 })
   }
 }

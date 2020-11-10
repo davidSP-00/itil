@@ -20,8 +20,12 @@
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
     "angular-cli-ghpages": "^0.6.2",
+    "file-saver": "^2.0.2",
+    "jspdf": "^2.1.1",
     "moment": "^2.29.1",
     "rxjs": "~6.6.0",
+    "sheetjs-style-v2": "^0.15.6",
+    "sweetalert2": "^10.9.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

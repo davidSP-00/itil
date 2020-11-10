@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ActualizadoIncidenciasComponent } from './components/actualizado-incidencias/actualizado-incidencias.component';
+import { ContraseniaComponent } from './components/contrasenia/contrasenia.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { IncidenciasComponent } from './components/incidencias/incidencias.component';
 import { LoginComponent } from './components/login/login.component';
@@ -22,6 +23,7 @@ children:[
   {path:'detalle',component:DetalleComponent},
   {path:'registro-usuario',component:RegistroUsuarioComponent},
   {path:'usuarios',component:UsuariosComponent},
+  {path:'cambiar-contrasenia',component:ContraseniaComponent},
   {path:'actualizar-usuario/:id',component:RegistroUsuarioComponent},
   { path: '',pathMatch:'full',redirectTo:'incidencias'},
   { path: '**', pathMatch:'full',redirectTo:'incidencias' },

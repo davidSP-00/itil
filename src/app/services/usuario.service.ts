@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 })
 export class UsuarioService {
   private url = 'https://itilv3.herokuapp.com/api/usuario';
- /* private url = 'http://localhost:8090/api/usuario'; */
+/*  private url = 'http://localhost:8090/api/usuario'; */
  usuario:any={};
   constructor(private http: HttpClient) {
 

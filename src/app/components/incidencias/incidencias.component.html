@@ -1,6 +1,22 @@
 <div class="banner position-relative" id="tabla">
 
 	<div class="container">
+		<div class="row text-center mb-3">
+			<div class="col-3">
+				<select [(ngModel)]="mes" class="form-control" (change)="filtrarIncidencias()">
+					<option value=''> Todas las incidencias</option>
+					<option value='11'> Noviembre 2020</option>
+					<option value='10'> Octubre 2020</option>
+					<option value='9'> Septiembre 2020</option>
+					<option value='8'> Agosto 2020</option>
+					<option value='7'> Julio 2020</option>
+					<option value='6'> Junio 2020</option>
+				</select>
+			</div>
+			<div class="col-3">
+				<button class="btn btn-primary" (click)="excelIncidencias()">Reporte Incidencias</button>
+			</div>
+		</div>
 		<table class="table table-striped ">
 			<thead>
 				<tr>
@@ -15,7 +31,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let incidencia of incidencias,let i =index">
+				<tr *ngFor="let incidencia of incidenciasFiltradas,let i =index">
 					<td>{{incidencia.nombre}}</td>
 					<td>{{incidencia.origen}}</td>
 					<td>{{incidencia.tipoIncidencia.nombre}}</td>

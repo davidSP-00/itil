@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +44,10 @@ return;
       this.router.navigate(['main']);
       localStorage.setItem('USER',JSON.stringify(data));
     },(err)=>{
-window.alert("Credenciales incorrectas");
+Swal.fire({
+  text:'Credenciales Incorrectas',
+  icon:'error'
+})
 
     }
     )

@@ -15,6 +15,7 @@
 				<li class="mr-lg-4 mr-2 " *ngIf="usuario.rol.id==5"><a routerLink="/main/usuarios" routerLinkActive="active font-weight-bold" >Usuarios</a></li>
 				<li class="mr-lg-4 mr-2 " ><a routerLink="/main/incidencias" routerLinkActive="active font-weight-bold" >Incidencias</a></li>
 				<li class="mr-lg-4 mr-2" *ngIf="usuario.rol.id!=5"><a routerLink="/main/registro" routerLinkActive="active font-weight-bold" >Registro de incidencias</a></li>
+				<li class="mr-lg-4 mr-2 " ><a routerLink="/main/cambiar-contrasenia" routerLinkActive="active font-weight-bold" >Cambiar Contraseña</a></li>
 				<!-- <li class="mr-lg-4 mr-2"><a routerLink="/main/reporte"  routerLinkActive="active font-weight-bold">Reporte de incidencias</a></li> -->
 				<li class="mr-lg-4 mr-2" ><a routerLink="/login" routerLinkActive="active font-weight-bold" (click)="cerrarSesion()">Cerrar Sesion</a></li>
 			</ul>
