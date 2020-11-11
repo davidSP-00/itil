@@ -1,8 +1,6 @@
 <div class="banner position-relative" id="tabla">
     <div class="container">
-        <a href="#">
-            <h1>Reporte de Incidencia</h1>
-        </a><br>
+            <h1>Registro de Solución</h1><br>
         <form  (ngSubmit)="onSubmit()" [formGroup]="reporteForm">
             <div class="form-row">
                 <div class="col-md-12 mb-3">
@@ -20,7 +18,7 @@
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label>Observacion</label>
+                    <label>Observación</label>
                     <textarea formControlName="observacion" class="form-control fomr1"  placeholder="Observacion"
                         value="" ></textarea>
 

@@ -1,7 +1,52 @@
 <div class="banner position-relative" id="tabla">
+	<div class="row text-center mb-3">
+		<div class=" as row">
+			<div class="col-3"><select [(ngModel)]="mes" class="form-control" (change)="filtrarIncidencias()">
+					<option value=''> Todas las incidencias</option>
+					<option value='11'> Noviembre 2020</option>
+					<option value='10'> Octubre 2020</option>
+					<option value='9'> Septiembre 2020</option>
+					<option value='8'> Agosto 2020</option>
+					<option value='7'> Julio 2020</option>
+					<option value='6'> Junio 2020</option>
+				</select>
+			</div>
+			<div class="col-3"><select [(ngModel)]="tipo" class="form-control" (change)="filtrarIncidencias()">
+					<option value=""> Todos los tipos</option>
+					<option value="1">leve</option>
+					<option value="2">severo</option>
+					<option value="3">crítico</option>
+				</select>
+			</div>
+			<div class="col-3"><select [(ngModel)]="prioridad" class="form-control" (change)="filtrarIncidencias()">
+					<option value=''> Todas las prioridades</option>
+					<option value="1">crítica</option>
+					<option value="2">alta</option>
+					<option value="3">media</option>
+					<option value="4">baja</option>
+					<option value="5">muy baja</option>
+				</select>
+			</div>
+			<div class="col-3"><select [(ngModel)]="estado" class="form-control" (change)="filtrarIncidencias()">
+					<option value=''> Todos los estados</option>
+					<option value="1">Por Validar</option>
+					<option value="2">Asignado</option>
+					<option value="3">En proceso</option>
+					<option value="4">Anulado</option>
+					<option value="5">Resuelto</option>
+					<option value="6">Cerrado</option>
+				</select>
+			</div>
+			<div class="col-12 text-center mt-2">
+					<button class="btn btn-primary" (click)="excelIncidencias()">Descargar Reporte Excel</button>
+				</div>
+		</div>
 
-	<div class="container">
-		<div class="row text-center mb-3">
+
+
+
+		<div class="container">
+			<!-- <div class="row text-center mb-3">
 			<div class="col-3">
 				<select [(ngModel)]="mes" class="form-control" (change)="filtrarIncidencias()">
 					<option value=''> Todas las incidencias</option>
@@ -16,47 +61,55 @@
 			<div class="col-3">
 				<button class="btn btn-primary" (click)="excelIncidencias()">Reporte Incidencias</button>
 			</div>
-		</div>
-		<table class="table table-striped ">
-			<thead>
-				<tr>
-					<th>Incidencia</th>
-					<th>Area</th>
-					<th>Tipo de incidencia</th>
-					<th>Estado</th>
-					<th>Prioridad de incidencia</th>
-					<th>Encargado</th>
-					<th>Fecha</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let incidencia of incidenciasFiltradas,let i =index">
-					<td>{{incidencia.nombre}}</td>
-					<td>{{incidencia.origen}}</td>
-					<td>{{incidencia.tipoIncidencia.nombre}}</td>
-					<td>{{incidencia.estadoIncidencia?incidencia.estadoIncidencia.nombre:'-'}}</td>
-					<td>{{incidencia.prioridadIncidencia.nombre}}</td>
-					<td>{{incidencia.usuarioAsigna?incidencia.usuarioAsigna.nombre:'-'}}</td>
-					<td>{{incidencia.fechaAsignada}}</td>
-					<td>
-						<div class="btn-group">
-							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">
-								Acciones
-							</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" (click)="actualizar(incidencia)" *ngIf="usuario.rol.id!=4">Actualizar</a>
-								<a class="dropdown-item" (click)="verDetalles(incidencia)">Ver Detalles</a>
-								<!-- <a class="dropdown-item" (click)="generarReporte(incidencia)" >Reportar</a> -->
-								<!-- <a class="dropdown-item" (click)="eliminar(incidencia,i)">Eliminar</a> -->
+		</div> -->
+			<table class="table table-striped ">
+				<thead>
+					<tr>
+						<th>Incidencia</th>
+						<th>Área</th>
+						<th>Tipo de incidencia</th>
+						<th>Estado</th>
+						<th>Prioridad de incidencia</th>
+						<th>Encargado</th>
+						<th>Fecha</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let incidencia of incidenciasFiltradas| paginate: { id: 'foo',
+					itemsPerPage: 5,
+					currentPage: p }">
+						<td>{{incidencia.nombre}}</td>
+						<td>{{incidencia.origen}}</td>
+						<td>{{incidencia.tipoIncidencia?incidencia.tipoIncidencia.nombre:'-'}}</td>
+						<td>{{incidencia.estadoIncidencia?incidencia.estadoIncidencia.nombre:'-'}}</td>
+						<td>{{incidencia.prioridadIncidencia?incidencia.prioridadIncidencia.nombre:'-'}}</td>
+						<td>{{incidencia.usuarioAsigna?incidencia.usuarioAsigna.nombre:'-'}}</td>
+						<td>{{incidencia.fechaAsignada}}</td>
+						<td>
+							<div class="btn-group">
+								<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false">
+									Acciones
+								</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" (click)="actualizar(incidencia)"
+										*ngIf="usuario.rol.id!=4">Actualizar</a>
+									<a class="dropdown-item" (click)="verDetalles(incidencia)">Ver Detalles</a>
+									<!-- <a class="dropdown-item" (click)="generarReporte(incidencia)" >Reportar</a> -->
+									<!-- <a class="dropdown-item" (click)="eliminar(incidencia,i)">Eliminar</a> -->
+								</div>
 							</div>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+						</td>
+					</tr>
+				</tbody>
 
+			</table>
+			<pagination-controls id="foo" (pageChange)="p=$event"  directionLinks="true" autoHide="true"
+				responsive="true" previousLabel="Anterior" nextLabel="Siguiente"
+				screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+				screenReaderCurrentLabel="You're on page">
+			</pagination-controls>
 
+		</div>
 	</div>
-</div>

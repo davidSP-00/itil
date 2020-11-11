@@ -7,7 +7,7 @@
                 <p>{{incidencia.nombre}}</p>
             </div>
             <div class="col">
-                <label>Descripcion:</label>
+                <label>Descripción:</label>
                 <p>{{incidencia.descripcion}}</p>
             </div>
         </div>
@@ -18,13 +18,13 @@
             </div>
             <div class="col">
                 <label>Prioridad:</label>
-                <p>{{incidencia.prioridadIncidencia.nombre}}</p>
+                <p>{{incidencia.prioridadIncidencia?incidencia.prioridadIncidencia.nombre:'-'}}</p>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>Tipo:</label>
-                <p>{{incidencia.tipoIncidencia.nombre}}</p>
+                <p>{{incidencia.tipoIncidencia?incidencia.tipoIncidencia.nombre:'-'}}</p>
             </div>
             <div class="col">
                 <label>Fecha:</label>
@@ -43,7 +43,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <label>Area:</label>
+                <label>Área:</label>
                 <p>{{incidencia.origen}}</p>
             </div>
             <div class="col">
@@ -61,7 +61,7 @@
                         <p>{{incidencia.usuarioAsigna.nombre}}</p></div>
                     <div class="col"><label>Correo:</label>
                         <p>{{incidencia.usuarioAsigna.correo}}</p></div>
-                    <div class="col"><label>Telefono:</label>
+                    <div class="col"><label>Teléfono:</label>
                         <p>{{incidencia.usuarioAsigna.movil}}</p></div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                         <p>{{incidencia.usuarioReporta.nombre}}</p></div>
                     <div class="col"><label>Correo:</label>
                         <p>{{incidencia.usuarioReporta.correo}}</p></div>
-                    <div class="col"><label>Telefono:</label>
+                    <div class="col"><label>Teléfono:</label>
                         <p>{{incidencia.usuarioReporta.movil}}</p></div>
                 </div>
             </div>
@@ -95,23 +95,23 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label>Resolucion:</label>
+                    <label>Resolución:</label>
                     <p>{{reporte.resolucion}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label>Observacion:</label>
+                    <label>Observación:</label>
                     <p>{{reporte.observacion}}</p>
                 </div>
             </div>
         </div>
         <br>
         <div class="col text-center mb-3">
-            <button *ngIf="puedeReportar" class=" btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
+            <button *ngIf="puedeReportar" class=" btn btn-primary" (click)="generarReporte()">Registrar Solución</button>
         </div>
         <div class="col text-center">
-            <button  class=" btn btn-primary" (click)="descargarPdf()">Descargar Detalles</button>
+            <button  class=" btn btn-primary" (click)="descargarPdf()">Descargar Reporte</button>
         </div>
     </div>
 

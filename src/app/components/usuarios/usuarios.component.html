@@ -6,7 +6,7 @@
 				<tr>
 					<th>Nombre</th>
 					<th>Correo</th>
-					<th>Movil</th>
+					<th>Teléfono</th>
 					<th>Estado</th>
 					<th>Sexo</th>
                     <th>Rol</th>
@@ -14,7 +14,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let usuario of usuarios,let i =index">
+				<tr *ngFor="let usuario of usuarios| paginate: { id: 'foo',
+				itemsPerPage: 5,
+				currentPage: p }">
 					<td>{{usuario.nombre}}</td>
 					<td>{{usuario.correo}}</td>
 					<td>{{usuario.movil}}</td>
@@ -38,6 +40,11 @@
 				</tr>
 			</tbody>
 		</table>
+		<pagination-controls id="foo" (pageChange)="p=$event"  directionLinks="true" autoHide="true"
+				responsive="true" previousLabel="Anterior" nextLabel="Siguiente"
+				screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+				screenReaderCurrentLabel="You're on page">
+			</pagination-controls>
 
 
 	</div>

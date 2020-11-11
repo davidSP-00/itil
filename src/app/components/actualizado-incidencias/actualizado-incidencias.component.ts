@@ -116,8 +116,13 @@ export class ActualizadoIncidenciasComponent implements OnInit {
   llenarFormulario(){
     this.actualizarForm.get('incidencia').setValue(this.incidencia.nombre);
     this.actualizarForm.get('descripcion').setValue(this.incidencia.descripcion);
-    this.actualizarForm.get('tipoIncidencia').setValue(this.incidencia.tipoIncidencia.id);
-    this.actualizarForm.get('prioridadIncidencia').setValue(this.incidencia.prioridadIncidencia.id);
+    if(this.incidencia.tipoIncidencia){
+      this.actualizarForm.get('tipoIncidencia').setValue(this.incidencia.tipoIncidencia.id);
+    }
+    if(this.incidencia.prioridadIncidencia){
+      this.actualizarForm.get('prioridadIncidencia').setValue(this.incidencia.prioridadIncidencia.id);
+    }
+    
     this.actualizarForm.get('estadoIncidencia').setValue(this.incidencia.estadoIncidencia.id);
     this.actualizarForm.get('origen').setValue(this.incidencia.origen);
     if(this.incidencia.usuarioAsigna!=null){

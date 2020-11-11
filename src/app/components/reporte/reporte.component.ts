@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IncidenciasService } from 'src/app/services/incidencias.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
@@ -17,7 +18,8 @@ export class ReporteComponent implements OnInit {
   soportes=[];
   constructor(private fb: FormBuilder,
     private incidenciasService:IncidenciasService,
-    private usuarioService:UsuarioService) { }
+    private usuarioService:UsuarioService,
+    private router:Router) { }
 
   ngOnInit(): void {
     
@@ -61,6 +63,7 @@ this.llenarFormulario();
           icon:'success',
           text:'Incidencia Actualizada Correctamente'
         })
+        this.router.navigate(['main/detalle'])
       }
     )
 

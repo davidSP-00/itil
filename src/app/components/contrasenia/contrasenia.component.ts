@@ -18,7 +18,6 @@ usuarioForm: FormGroup;
 
   ngOnInit(): void {
     this.usuario=this.usuarioService.getUsuario;
-    console.log(this.usuario);
 
     this.usuarioForm = this.fb.group({
       contrasenia: new FormControl('', {

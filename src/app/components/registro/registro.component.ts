@@ -4,6 +4,7 @@ import { IncidenciasService } from 'src/app/services/incidencias.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -16,7 +17,8 @@ export class RegistroComponent implements OnInit {
   usuario:any={};
   constructor(private fb: FormBuilder,
     private incidencisService:IncidenciasService,
-    private usuarioService:UsuarioService) { }
+    private usuarioService:UsuarioService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.usuario=this.usuarioService.getUsuario;
@@ -64,8 +66,8 @@ const data={
   "fechaInicio": '',
   "nombre": this.registroForm.get('incidencia').value,
   "origen": this.registroForm.get('origen').value,
-  "prioridadIncidencia": {"id": this.registroForm.get('prioridadIncidencia').value,},
-  "tipoIncidencia": {"id": this.registroForm.get('tipoIncidencia').value,},
+  /* "prioridadIncidencia": {"id": this.registroForm.get('prioridadIncidencia').value,},
+  "tipoIncidencia": {"id": this.registroForm.get('tipoIncidencia').value,}, */
   /* "usuarioAsigna": {"id": this.registroForm.get('usuarioAsigna').value}, */
   "usuarioReporta": {"id":this.usuario.id}
 }
@@ -74,6 +76,7 @@ this.incidencisService.registrarIncidencia(data).subscribe(data=>{
     icon:'success',
     text:'Incidencia Registrada Correctamente'
   })
+  this.router.navigate(['main/incidencias'])
 })
   }
 }

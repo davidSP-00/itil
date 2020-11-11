@@ -11,14 +11,14 @@
                     value="">
                 <div class="invalid-feedback">Complete el campo.</div>
             </div>
-            <div class="col-md-4 mb-3">
+            <!-- <div class="col-md-4 mb-3">
                 <label>Tipo</label>
                 <select class="form-control fomr1" formControlName="tipoIncidencia" type="text"  id="direccion"
                     placeholder="Tipo de incidencia">
                     <option value="" disabled>Tipo</option>
                     <option value="1">leve</option>
                     <option value="2">severo</option>
-                    <option value="3">critico</option>
+                    <option value="3">crítico</option>
                 </select>
 
                 <div class="invalid-feedback">Complete el campo.</div>
@@ -27,17 +27,17 @@
                 <label>Prioridad</label>
                 <select  type="text" class="form-control fomr1" formControlName="prioridadIncidencia">
                     <option value="" disabled>Prioridad</option>
-                    <option value="1">critica</option>
+                    <option value="1">crítica</option>
                     <option value="2">alta</option>
                     <option value="3">media</option>
                     <option value="4">baja</option>
                     <option value="5">muy baja</option>
                 </select>
                 <div class="invalid-feedback">Complete el campo.</div>
-            </div><br><br><br>
+            </div> --><br><br><br>
 
             <div class="col-md-12 mb-3">
-                <label>Descripcion</label>
+                <label>DescripciÓn</label>
                 <textarea  style="height: 100px;" class="form-control fomr1"  formControlName="descripcion"
                     value="" ></textarea>
                 <div class="invalid-feedback">Complete el campo.</div>
@@ -61,8 +61,18 @@
             </div> -->
             <div class="col-md-4 mb-3">
                     <label>Origen</label>
-                    <input type="text" class="form-control fomr1" formControlName="origen" placeholder="Origen"
+                    <select  class="form-control fomr1" formControlName="origen" placeholder="Origen"
                         aria-describedby="inputGroupPrepend">
+                        <option value="Contabilidad">Contabilidad</option>
+                        <option value="Administracion">Administracion</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
+                        <option value="TI">TI</option>
+                        <option value="Legal">Legal</option>
+                        <option value="Caja">Caja</option>
+                        <option value="Secretaria">Secretaria</option>
+                        <option value="Market">Market</option>
+                        <option value="Almacen">Almacen</option>
+                        </select>
                     <div class="invalid-feedback">Complete el campo.</div>
                 
             </div>

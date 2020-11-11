@@ -10,11 +10,13 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
 import { RegistroComponent } from './components/registro/registro.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'main',component:MainComponent,
+  canActivate:[AuthGuard],
 children:[
   {path:'incidencias',component:IncidenciasComponent},
   {path:'registro',component:RegistroComponent},

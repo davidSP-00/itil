@@ -12,11 +12,11 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label>Correo</label>
-                    <input formControlName="correo" class="form-control fomr1" type="text" value="" required>
+                    <input formControlName="correo" class="form-control fomr1" type="email" value="" required>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label>Telefono</label>
+                    <label>Teléfono</label>
                     <input formControlName="movil" class="form-control fomr1" type="text" value="" required>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
@@ -25,7 +25,7 @@
                     <input formControlName="login" class="form-control fomr1" type="text" value="" required>
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3" *ngIf="clave">
                     <label>Contraseña</label>
                     <input formControlName="clave" class="form-control fomr1" type="text" value="" required>
                     <div class="invalid-feedback">Complete el campo.</div>

@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class UsuariosComponent implements OnInit {
   usuarios=[]
-
+  p:number=1;
   constructor(private usuarioService:UsuarioService,
     private router:Router) { }
 

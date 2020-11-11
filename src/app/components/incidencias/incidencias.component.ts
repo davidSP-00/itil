@@ -11,10 +11,15 @@ import * as moment from 'moment';
   styleUrls: ['./incidencias.component.css']
 })
 export class IncidenciasComponent implements OnInit {
+  p:number=1;
   incidencias=[];
   incidenciasFiltradas=[];
 
-  mes=''
+  mes='';
+  prioridad='';
+  tipo='';
+  estado='';
+
   usuario:any={};
   constructor(private incidenciasService:IncidenciasService,
     private usuarioService:UsuarioService,
@@ -143,8 +148,6 @@ export class IncidenciasComponent implements OnInit {
     saveAs(new Blob([this.s2ab(wbout)],{type:"application/octet-stream"}), 'Reporte Incidencias.xlsx');
   }
   filtrarIncidencias(){
-    console.log(this.mes)
-    console.log('Hola')
     this.incidenciasFiltradas=this.incidencias.filter(incidencia=>{
       let month=moment(incidencia.fechaAsignada).format('MM')
       if(this.mes==''){
@@ -153,6 +156,39 @@ return incidencia;
       if(month==this.mes){
         return incidencia;
       }
+    })
+    this.incidenciasFiltradas=this.incidenciasFiltradas.filter(incidencia=>{
+      if(this.tipo==''){
+return incidencia;
+      }
+      if(incidencia.tipoIncidencia){
+        if(this.tipo==incidencia.tipoIncidencia.id){
+          return incidencia;
+        }
+      }
+      
+    })
+    this.incidenciasFiltradas=this.incidenciasFiltradas.filter(incidencia=>{
+      if(this.prioridad==''){
+return incidencia;
+      }
+      if(incidencia.prioridadIncidencia){
+        if(this.prioridad==incidencia.prioridadIncidencia.id){
+          return incidencia;
+        }
+      }
+      
+    })
+    this.incidenciasFiltradas=this.incidenciasFiltradas.filter(incidencia=>{
+      if(this.estado==''){
+return incidencia;
+      }
+      if(incidencia.estadoIncidencia){
+        if(this.estado==incidencia.estadoIncidencia.id){
+          return incidencia;
+        }
+      }
+      
     })
   }
 }

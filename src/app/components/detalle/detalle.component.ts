@@ -24,7 +24,6 @@ export class DetalleComponent implements OnInit {
 this.reporte=data.body;
       }
     )
-    console.log(this.incidencia);
   }
 
   generarReporte(){
@@ -57,7 +56,7 @@ doc.text(this.incidencia.fechaAsignada?this.incidencia.fechaAsignada:'-',40,50)
 doc.text('12/03/20 30:40:50',90,50)
 
 doc.setFont('Arial','bold');
-doc.text('Descripcion:',85,60)
+doc.text('Descripción:',85,60)
 doc.setFont('Arial','500');
 var lMargin = 30; //left margin in mm
     var rMargin = 30; //right margin in mm
@@ -108,7 +107,7 @@ var lMargin = 30; //left margin in mm
     
     doc.setFontSize(15)
     doc.setFont('Arial','bold');
-doc.text( 'Resolucion:',85, 180,)
+doc.text( 'Resolución:',85, 180,)
 doc.setFont('Arial','500');
 var lMargin = 30; //left margin in mm
     var rMargin = 30; //right margin in mm
@@ -122,7 +121,7 @@ var lMargin = 30; //left margin in mm
     
         doc.setFontSize(15)
     doc.setFont('Arial','bold');
-doc.text( 'Observacion:',85, 220,)
+doc.text( 'Observación:',85, 220,)
 doc.setFont('Arial','500');
 var lMargin = 30; //left margin in mm
     var rMargin = 30; //right margin in mm

@@ -17,7 +17,7 @@
                         <option value="" disabled>Tipo</option>
                         <option value="1">leve</option>
                         <option value="2">severo</option>
-                        <option value="3">critico</option>
+                        <option value="3">crítico</option>
                     </select>
 
                     <div class="invalid-feedback">Complete el campo.</div>
@@ -26,7 +26,7 @@
                     <label>Prioridad</label>
                     <select type="text" class="form-control fomr1" formControlName="prioridadIncidencia" >
                         <option value="" disabled>Prioridad</option>
-                        <option value="1">critica</option>
+                        <option value="1">crítica</option>
                         <option value="2">alta</option>
                         <option value="3">media</option>
                         <option value="4">baja</option>
@@ -36,7 +36,7 @@
                 </div><br><br><br>
 
                 <div class="col-md-12 mb-3">
-                    <label>Descripcion</label>
+                    <label>Descripción</label>
                     <input type="text" class="form-control fomr1" formControlName="descripcion" value="" >
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div><br><br><br>
@@ -58,8 +58,18 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label>Origen</label>
-                        <input type="text" class="form-control fomr1" formControlName="origen" 
-                            aria-describedby="inputGroupPrepend" >
+                    <select  class="form-control fomr1" formControlName="origen" placeholder="Origen"
+                    aria-describedby="inputGroupPrepend">
+                    <option value="Contabilidad">Contabilidad</option>
+                    <option value="Administracion">>Administracion</option>
+                    <option value="Recursos Humanos">Recursos Humanos</option>
+                    <option value="TI">TI</option>
+                    <option value="Legal">Legal</option>
+                    <option value="Caja">Caja</option>
+                    <option value="Secretaria">Secretaria</option>
+                    <option value="Market">Market</option>
+                    <option value="Almacen">Almacen</option>
+                    </select>
                         <div class="invalid-feedback">Complete el campo.</div>
                    
                 </div>
@@ -83,7 +93,7 @@
                     <div class="invalid-feedback">Complete el campo.</div>
                 </div>
             </div><br><br>
-            <button class="btn btn-primary" type="submit">Registrar</button>
+            <button class="btn btn-primary" type="submit">Actualizar</button>
         </form>
 
     </div>

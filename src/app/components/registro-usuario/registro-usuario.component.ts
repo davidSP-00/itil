@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -11,13 +11,13 @@ import Swal from 'sweetalert2';
 })
 export class RegistroUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
-
+clave=true;
 
   actualizando = false;
   usuario: any = {};
 
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -57,6 +57,7 @@ export class RegistroUsuarioComponent implements OnInit {
     });
     if (this.route.snapshot.params.id != null) {
       this.obtenerUsuario(this.route.snapshot.params.id);
+      this.clave=false;
     }
   }
   obtenerUsuario(id) {
@@ -98,6 +99,7 @@ export class RegistroUsuarioComponent implements OnInit {
         icon:'success',
         text:'Usuario Correctamente Registrado'
       })
+      this.router.navigate(['main/usuarios'])
     })
   }
 }
