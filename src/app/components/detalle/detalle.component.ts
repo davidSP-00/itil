@@ -50,10 +50,10 @@ doc.setFont('Arial','500');
 doc.text(this.incidencia.nombre?this.incidencia.nombre:'-',70, 40 )
 
 doc.setFont('Arial','bold');
-doc.text( 'Fecha:',20,50)
+doc.text( 'Fecha Inicio-Fin:',20,50)
 doc.setFont('Arial','500');
-doc.text(this.incidencia.fechaAsignada?this.incidencia.fechaAsignada:'-',40,50)
-doc.text('12/03/20 30:40:50',90,50)
+doc.text(this.incidencia.fechaAsignada?this.incidencia.fechaAsignada:'-',70,50)
+doc.text(this.incidencia.fechaFin?this.incidencia.fechaFin:'-',130,50)
 
 doc.setFont('Arial','bold');
 doc.text('Descripción:',85,60)

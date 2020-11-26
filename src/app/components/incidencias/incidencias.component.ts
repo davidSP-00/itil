@@ -75,7 +75,7 @@ export class IncidenciasComponent implements OnInit {
     this.incidencias.forEach(incidencia=>{
       a.push(i);
       a.push(incidencia.nombre?incidencia.nombre:'-');
-      a.push(incidencia.descripcion?incidencia.nombre:'-');
+      a.push(incidencia.descripcion?incidencia.descripcion:'-');
       a.push(incidencia.estadoIncidencia?incidencia.estadoIncidencia.nombre:'-');
       a.push(incidencia.prioridadIncidencia?incidencia.prioridadIncidencia.nombre:'-');
       a.push(incidencia.tipoIncidencia?incidencia.tipoIncidencia.nombre:'-');

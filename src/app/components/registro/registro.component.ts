@@ -61,7 +61,7 @@ export class RegistroComponent implements OnInit {
 const data={
   "descripcion": this.registroForm.get('descripcion').value,
   "estadoIncidencia": {"id": 1},
-  "fechaAsignada": moment(new Date()).format('YYYY-MM-DD hh:mm:ss'),
+  "fechaAsignada": moment(new Date()).format('YYYY-MM-DD hh:mm:ss A'),
   "fechaFin": '',
   "fechaInicio": '',
   "nombre": this.registroForm.get('incidencia').value,
