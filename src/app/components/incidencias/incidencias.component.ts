@@ -57,6 +57,7 @@ export class IncidenciasComponent implements OnInit {
       data=>{
         this.incidencias=data.body;
         this.incidenciasFiltradas=data.body;
+        this.incidenciasFiltradas.reverse();
       }
     )
   }
