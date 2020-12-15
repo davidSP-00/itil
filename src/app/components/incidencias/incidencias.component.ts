@@ -14,6 +14,7 @@ export class IncidenciasComponent implements OnInit {
   p:number=1;
   incidencias=[];
   incidenciasFiltradas=[];
+  id='';
 
   mes='';
   prioridad='';
@@ -190,6 +191,16 @@ return incidencia;
         }
       }
       
+    })
+    this.incidenciasFiltradas=this.incidenciasFiltradas.filter(incidencia=>{
+      if(this.id==''||this.id==null){
+        return incidencia;
+      }
+      if(incidencia.id){
+        if(this.id==incidencia.id){
+          return incidencia;
+        }
+      }
     })
   }
 }

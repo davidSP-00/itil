@@ -11,14 +11,14 @@
 					<option value='6'> Junio 2020</option>
 				</select>
 			</div>
-			<div class="col-3"><select [(ngModel)]="tipo" class="form-control" (change)="filtrarIncidencias()">
+			<div class="col-2"><select [(ngModel)]="tipo" class="form-control" (change)="filtrarIncidencias()">
 					<option value=""> Todos los tipos</option>
 					<option value="1">leve</option>
 					<option value="2">severo</option>
 					<option value="3">crítico</option>
 				</select>
 			</div>
-			<div class="col-3"><select [(ngModel)]="prioridad" class="form-control" (change)="filtrarIncidencias()">
+			<div class="col-2"><select [(ngModel)]="prioridad" class="form-control" (change)="filtrarIncidencias()">
 					<option value=''> Todas las prioridades</option>
 					<option value="1">crítica</option>
 					<option value="2">alta</option>
@@ -27,7 +27,7 @@
 					<option value="5">muy baja</option>
 				</select>
 			</div>
-			<div class="col-3"><select [(ngModel)]="estado" class="form-control" (change)="filtrarIncidencias()">
+			<div class="col-2"><select [(ngModel)]="estado" class="form-control" (change)="filtrarIncidencias()">
 					<option value=''> Todos los estados</option>
 					<option value="1">Por Validar</option>
 					<option value="2">Asignado</option>
@@ -36,6 +36,10 @@
 					<option value="5">Resuelto</option>
 					<option value="6">Cerrado</option>
 				</select>
+			</div>
+			<div class="col-2">
+			<input type="text" [(ngModel)]="id" class="form-control" (keyup)="filtrarIncidencias()">	
+
 			</div>
 			<div class="col-12 text-center mt-2">
 					<button class="btn btn-primary" (click)="excelIncidencias()">Descargar Reporte Excel</button>
@@ -65,6 +69,7 @@
 			<table class="table table-striped ">
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Incidencia</th>
 						<th>Área</th>
 						<th>Tipo de incidencia</th>
@@ -79,6 +84,7 @@
 					<tr *ngFor="let incidencia of incidenciasFiltradas| paginate: { id: 'foo',
 					itemsPerPage: 5,
 					currentPage: p }">
+					<td>{{incidencia.id}}</td>
 						<td>{{incidencia.nombre}}</td>
 						<td>{{incidencia.origen}}</td>
 						<td>{{incidencia.tipoIncidencia?incidencia.tipoIncidencia.nombre:'-'}}</td>
